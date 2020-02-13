@@ -1,0 +1,1 @@
+curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints -d "{""author"":""test1"",""name"":""J1"",""points"":[]}"
