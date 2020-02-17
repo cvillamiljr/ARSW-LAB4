@@ -36,3 +36,27 @@
     ![](/BLUEPRINTS-PART2/img/autor-name.jpg)
 
     ![](/BLUEPRINTS-PART2/img/autor-name1.jpg)
+
+###  PART II
+
+- Add the handling of POST requests (creation of new plans), so that an http client can register a new order by making a POST request to the resource planes, and sending as content of the request all the detail of said resource through a JSON document. For this, consider the following example, which considers - by consistency with the HTTP protocol - the handling of HTTP status codes (in case of success or error):
+
+    ![](/BLUEPRINTS-PART2/img/Post.jpg)
+
+- To test that the planes resource correctly accepts and interprets POST requests, use the Unix curl command. This command has as a parameter the type of content handled (in this case JSON), and the message body that will go with the request, which in this case must be a JSON document equivalent to the Client class (where instead of {JSON Object}, a JSON object corresponding to a new order will be used.
+
+    - Una vez creamos el comando usando cURL, procedmos a ejecutarlo teniendo en cuenta que los datos deben ser correctos para que funcione y el POST se realice de manera correcta o de lo contrario tendremos un error.
+    
+    ![](/BLUEPRINTS-PART2/img/Insertar.jpg)
+    
+    - Luego de que la operacion se realizó exitosamente (Http 202) verificamos antes de refrescar la pagina que este corriendo la aplicación en nuestra maquina local.
+    
+    ![](/BLUEPRINTS-PART2/img/antesDelPost.jpg)
+    
+    - Y finalmente refrescamos para verificar que el post efectivamente se realizo de manera correcta.
+    
+    ![](/BLUEPRINTS-PART2/img/luegoDelPost.jpg)
+    
+    - Teniendo en cuenta que en windows no se puede probar la operación PUT, lo hicimos de la siguiente manera.
+    
+    ![](/BLUEPRINTS-PART2/img/put.jpg)
