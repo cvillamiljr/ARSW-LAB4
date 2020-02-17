@@ -33,9 +33,10 @@
 
 - Modify the controller so that it now accepts GET requests to the resource/blueprints/{author}/{bpname}, which returns using a JSON representation only ONE plane, in this case the one made by {author} and whose name is {bpname}. Again, if there is no such author, you must respond with the HTTP 404 error code.
 
-    ![](/BLUEPRINTS-PART2/img/autor-name.jpg)
+    ![](/BLUEPRINTS-PART2/img/autor-name1.jpg)
 
     ![](/BLUEPRINTS-PART2/img/autor-name1.jpg)
+
 
 ###  PART II
 
@@ -60,3 +61,26 @@
     - Teniendo en cuenta que en windows no se puede probar la operación PUT, lo hicimos de la siguiente manera.
     
     ![](/BLUEPRINTS-PART2/img/put.jpg)
+
+
+###  PART III
+
+- The BlueprintsRESTAPI component will work in a concurrent environment. That is, it will attend multiple requests simultaneously (with the stack of applications used, these requests will be attended by default across multiple threads). Given the above, you should review your API (once it works), and identify:
+
+    - What race conditions could occur?
+    
+    Mientras la página esté recibiendo una petición GET, se puede estar realizando una solicutud PUT o POST que modifique los valores y genere datos corruptos para un lado o para el otro.  
+
+    - What are the respective critical regions?
+    
+    Las peticiones GET, POST y PUT hacen uso respectivamente de estos tres métodos, por esto es que se considera como la región crítica.
+    ![](/BLUEPRINTS-PART2/img/carrera.jpg)
+    
+Set the code to suppress race conditions. Keep in mind that simply synchronizing access to persistence/query operations will significantly degrade the API performance, so you should look for alternative strategies.
+Write your analysis and the solution applied to the file README.txt
+    
+    Como las peticiones GET, PUT y POST hacen uso de los tres metodos previamente mencionados en la region critica, es importante poder permitir el acceso concurrente a los datos y evitar que los mismos sean inconsistenes, por esta razon 
+    se hace uso de un hashmap concurrente el cual permite las mismas operaciones que un hashmap normal pero adicionalmente permite el acceso concurrente mencionado.
+    
+    ![](/BLUEPRINTS-PART2/img/hash.jpg)
+
