@@ -74,9 +74,10 @@
     - What are the respective critical regions?
     
     Las peticiones GET, POST y PUT hacen uso respectivamente de estos tres métodos, por esto es que se considera como la región crítica.
+
     ![](/BLUEPRINTS-PART2/img/carrera.jpg)
     
-Set the code to suppress race conditions. Keep in mind that simply synchronizing access to persistence/query operations will significantly degrade the API performance, so you should look for alternative strategies.
+- Set the code to suppress race conditions. Keep in mind that simply synchronizing access to persistence/query operations will significantly degrade the API performance, so you should look for alternative strategies.
 Write your analysis and the solution applied to the file README.txt
     
     Como las peticiones GET, PUT y POST hacen uso de los tres metodos previamente mencionados en la region critica, es importante poder permitir el acceso concurrente a los datos y evitar que los mismos sean inconsistenes, por esta razon 
