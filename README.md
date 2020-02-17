@@ -33,6 +33,6 @@
 
 - Modify the controller so that it now accepts GET requests to the resource/blueprints/{author}/{bpname}, which returns using a JSON representation only ONE plane, in this case the one made by {author} and whose name is {bpname}. Again, if there is no such author, you must respond with the HTTP 404 error code.
 
-    ![](/BLUEPRINTS-PART2/img/autor-name1.jpg)
+    ![](/BLUEPRINTS-PART2/img/autor-name.jpg)
 
     ![](/BLUEPRINTS-PART2/img/autor-name1.jpg)
