@@ -1,1 +1,1 @@
-curl -i -X PUT -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints -d "{""author"":""diego"",""name"":""pintura"",""points"":[]}"
+curl -i -X PUT -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints/diego/pintuta -d "{""author"":""diego"",""name"":""pintura"",""points"":[{""x"":1810,""y"":7793}]}"

@@ -77,6 +77,14 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
         });
         return list;
     }
-    
+
+	@Override
+	public void setBluePrint(String author, String name, Blueprint b) {
+		
+		blueprints.remove(new Tuple<>(b.getAuthor(), b.getName()));
+		Blueprint bp=new Blueprint(author, name);
+		bp.setPoints(b.getPoints());
+		blueprints.put(new Tuple<>(b.getAuthor(),b.getName()), bp);
+	}
     
 }

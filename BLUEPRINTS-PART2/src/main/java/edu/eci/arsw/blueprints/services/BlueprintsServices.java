@@ -68,4 +68,10 @@ public class BlueprintsServices {
     public Set<Blueprint> filtrar() throws BlueprintNotFoundException{
         return f.filtrar(bpp.getAllBlueprints());
     }
+
+	public void setBluePrint(String author, String name, Blueprint b) {
+		
+		bpp.setBluePrint(author, name, b);
+		
+	}
 }

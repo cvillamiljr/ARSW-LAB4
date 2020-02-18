@@ -69,6 +69,9 @@ public class BlueprintAPIController {
 		}
     }
     
+    
+    //comando:
+    //curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints -d "{""author"":""test1"",""name"":""J1"",""points"":[]}"
     @RequestMapping(method=RequestMethod.POST)
     public ResponseEntity<?> registro(@RequestBody Blueprint b){
     	try {
@@ -80,17 +83,14 @@ public class BlueprintAPIController {
 		}
     }
     
-    @RequestMapping(method=RequestMethod.PUT)
+    //comado:
+    //curl -i -X PUT -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints/diego/pintuta -d "{""author"":""diego"",""name"":""pintura"",""points"":[{""x"":1810,""y"":7793}]}"
+    
+    @RequestMapping(method=RequestMethod.PUT, value="/{author}/{name}")
     public ResponseEntity<?> actualizar(@PathVariable String author,@PathVariable String name, @RequestBody Blueprint b ) {
-    	try {
-    		Blueprint bs= BS.getBlueprint(author, name);
-    		System.out.println(b.getPoints());
-    		bs.setPoints(b.getPoints());
-    		
-			return new ResponseEntity<>(HttpStatus.ACCEPTED);
-		} catch (BlueprintNotFoundException e1) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+    	BS.setBluePrint(author, name, b);
+    	System.out.println(b.toString());
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 }
 

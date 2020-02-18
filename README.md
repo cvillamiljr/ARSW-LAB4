@@ -58,10 +58,25 @@
     
     ![](/BLUEPRINTS-PART2/img/luegoDelPost.jpg)
     
-    - Teniendo en cuenta que en windows no se puede probar la operación PUT, lo hicimos de la siguiente manera.
+    - Creación del método PUT en el Controller:
     
     ![](/BLUEPRINTS-PART2/img/put.jpg)
 
+	Delegación hasta InMemoryBlueprintPersistence:
+
+	![](/BLUEPRINTS-PART2/img/put1.jpg)
+
+	Antes de ejecutar el comando:
+
+	![](/BLUEPRINTS-PART2/img/put2.jpg)
+
+	Ejecutando el comadno:
+
+	![](/BLUEPRINTS-PART2/img/put3.jpg)
+
+	Refrescando la página:
+
+	![](/BLUEPRINTS-PART2/img/put4.jpg)
 
 ###  PART III
 
